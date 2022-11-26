@@ -26,13 +26,17 @@
 
        public class OnlineCourse : Courses
         {
+            private string v;
+
             public string Url { get; set; }
 
 
-            public OnlineCourse(string mUrl, int ID, string title, int cred, int dept) : base(ID, title, cred, dept)
+        
+            public OnlineCourse(int ID, string title, int cred, int dept, string v) : base(ID, title, cred, dept)
             {
-                Url = mUrl;
+                this.v = v;
             }
+
             public override string ShowInfo()
             {
                 return "The Course " + Title + " is available at " + Url + " for Online Courses";
@@ -42,14 +46,21 @@
 
        public  class OnsiteCourse : Courses
         {
+            private string v1;
+            private string v2;
+            private object p;
+
             public int days { get; set; }
             public string Location { get; set; }
 
-            public OnsiteCourse(int mday, string mLocation, int ID, string title, int cred, int dept) : base(ID, title, cred, dept)
+        
+            public OnsiteCourse(int ID, string title, int cred, int dept, string v1, string v2, object p) : base(ID, title, cred, dept)
             {
-                days = mday;
-                Location = mLocation;
+                this.v1 = v1;
+                this.v2 = v2;
+                this.p = p;
             }
+
             public override string ShowInfo()
             {
                 return "The Course " + Title + " is taught on  " + days + " in " + Location;
