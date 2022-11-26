@@ -1,0 +1,60 @@
+﻿@using INF272EXAM20221126.Models
+@model List<Courses>
+
+@{
+    ViewBag.Title = "INF272: Section B";
+}
+
+<div class="container">
+    <h3 align="right"><strong>Section B (10 marks).<br />Object-oriented Programming and Bootstrap.</strong></h3>
+</div>
+
+@*
+    Complete the question for this section BELOW THIS LINE.
+    Do not remove the green line.
+    --------------------------------------------------------
+    --------------------------------------------------------
+*@
+
+<h2>Course venues</h2>
+
+<div>
+    <div style="width:40%; float:left">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Online Course
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model.Where(s=>s.ShowInfo().ToLower().Contains("online")))
+            {
+                <tr>
+                    <td>@item.ShowInfo()</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+    <div style="width:40%; float:right">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Onsite Course
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Where(s => s.ShowInfo().ToLower().Contains("taught")))
+                {
+                    <tr>
+                        <td>@item.ShowInfo()</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
